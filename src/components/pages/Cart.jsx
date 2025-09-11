@@ -1,10 +1,13 @@
 import React, { useState } from "react";
 import Container from "../Container";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { quantityMinus, quantityPlus } from "../../features/addToCartSlice";
 
 const Cart = () => {
   const data = useSelector((state) => state.cart.value);
- 
+  const amount = data.quantity;
+  const dispatch = useDispatch()
+
   return (
     <Container className={"py-[40px]"}>
       <h1 className="font-bold font-DM text-[50px] py-[50px] ">Cart</h1>
@@ -18,24 +21,23 @@ const Cart = () => {
         </ul>
       </div>
       <div className=" bg-white border-1 py-[30px] px-[10px] font-DM font-bold text-[16px]">
-        {data.map((item) => (
-          <>
-            <ul className="flex justify-between items-center">
+        {data.map((item) => {
+          return (
+            <ul key={item.id} className="flex justify-between items-center">
               <li>
-                <img className="w-[70px]" src={item.img} />
+                <img className="w-[70px]" src={item.img} alt={item.title} />
               </li>
-              <li>{item.price}</li>
-              <div className="flex gap-4">
-                <button>+</button>
-              <li>{item.quantity}</li>
-              <button>-</button>
+              <li>${item.price}</li>
+              <div className="flex gap-4 items-center">
+                <button onClick={()=> dispatch(quantityPlus(item.id))}>+</button>
+                <li>{item.quantity}</li>
+                <button onClick={()=> dispatch(quantityMinus(item.id))}>-</button>
               </div>
-              <li>{`$${item.price * item.quantity}`}</li>
+              <li>${item.price * item.quantity}</li>
             </ul>
-          </>
-        ))}
+          );
+        })}
       </div>
-        
     </Container>
   );
 };

@@ -12,7 +12,7 @@ const Header = () => {
     setToggle(!toggle);
   };
   return (
-    <Container className={"py-[30px]"}>
+    <Container className={"py-[30px] "}>
       <div className="flex items-center mx-[20px] lg:mx-0">
         <Images src={Logo} />
         <div className="m-auto">
