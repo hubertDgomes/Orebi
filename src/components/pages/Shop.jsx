@@ -207,10 +207,10 @@ const Shop = () => {
               </select>
             </div>
           </div>
-          <div className="productPart flex flex-wrap gap-y-[40px] justify-between mt-[50px]">
+          <div className="productPart flex flex-wrap gap-y-[40px] sm:justify-between mt-[50px] justify-center">
             {shopsItem}
           </div>
-          <div className="flex gap-x-[20px]">
+          <div className="flex gap-x-[20px] justify-center lg:justify-start">
             <button className="p-3 border-1 cursor-pointer hover:bg-black hover:text-white transition-all duration-500">
               1
             </button>
