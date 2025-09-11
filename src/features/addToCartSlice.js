@@ -18,13 +18,13 @@ export const addToCartSlice = createSlice({
       }
     },
     quantityPlus: (state,action)=>{
-      let get = state.value.find(item=> item.id === action.payload)
+      let get = state.value.find(item=> item.title === action.payload)
       if(get){
         get.quantity += 1
       }
     },
     quantityMinus: (state,action)=>{
-      let get = state.value.find(item=> item.id === action.payload)
+      let get = state.value.find(item=> item.title === action.payload)
       if(get && get.quantity > 0){
         get.quantity -= 1
       }

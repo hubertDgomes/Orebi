@@ -29,9 +29,9 @@ const Cart = () => {
               </li>
               <li>${item.price}</li>
               <div className="flex gap-4 items-center">
-                <button onClick={()=> dispatch(quantityPlus(item.id))}>+</button>
+                <button onClick={()=> dispatch(quantityPlus(item.title))}>+</button>
                 <li>{item.quantity}</li>
-                <button onClick={()=> dispatch(quantityMinus(item.id))}>-</button>
+                <button onClick={()=> dispatch(quantityMinus(item.title))}>-</button>
               </div>
               <li>${item.price * item.quantity}</li>
             </ul>
