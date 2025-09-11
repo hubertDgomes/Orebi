@@ -61,7 +61,7 @@ const Search = () => {
               <input
                 type="text"
                 placeholder="Search Products"
-                className="w-[150px] sm:w-[600px] pr-[50px] py-[10px] px-[20px] bg-white sm:placeholder:text-[19px] placeholder:text-[10px]"
+                className="w-[150px] sm:w-[200px] lg:w-[600px] pr-[50px] py-[10px] px-[20px] bg-white sm:placeholder:text-[19px] placeholder:text-[10px]"
               />
               <FaMagnifyingGlass className="absolute right-5 top-[20px] sm:top-3.5 cursor-pointer text-[10px] sm:text-[20px]" />
             </div>
@@ -82,7 +82,7 @@ const Search = () => {
         <Images className={"m-auto w-full"} src={Banner} />
       </div>
       <Container className={"py-[20px]"}>
-          <div className="flex sm:flex-row flex-col text-center justify-between">
+          <div className="flex sm:flex-row flex-col text-center sm:justify-between gap-y-[20px] items-center">
             <div className="flex items-center gap-x-[10px]">
               <p className="text-[25px]">2</p>
               <p className="font-DM text-[16px]"> Two years warranty</p>

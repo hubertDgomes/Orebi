@@ -23,7 +23,7 @@ const Products = ({ src, proName, proPrice }) => {
   };
   return (
     <>
-      <div className="lg:w-[370px] sm:w-[250px] relative group sm:mx-[20px]">
+      <div className="lg:w-[370px] sm:w-[230px] relative group mx-[20px]">
         <Images className={"bg-[#F9F9F9] m-auto w-full"} src={src} />
         <div className="bg-white py-[10px] px-[30px] flex flex-col items-end absolute bottom-[50px] w-full translate-y-[20px] opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-400">
           <div className="flex items-center gap-x-[10px]">
