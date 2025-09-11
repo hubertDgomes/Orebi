@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Container from "../Container";
 import Images from "../Images";
 import Logo from "/src/assets/Logo.png";
-import { Link } from "react-router-dom";
+import { Link, Links } from "react-router-dom";
 import { IoMdMenu } from "react-icons/io";
 import { RxCross2 } from "react-icons/rx";
 
@@ -41,7 +41,7 @@ const Header = () => {
                 <Link to={"/"}>
               <li className="px-5 py-3 text-[20px] border-1">Home</li>
             </Link>
-            <li className="px-5 py-3 text-[20px] border-1">Shop</li>
+            <Link to={"/Shop"}><li className="px-5 py-3 text-[20px] border-1">Shop</li></Link>
             <li className="px-5 py-3 text-[20px] border-1">About</li>
             <li className="px-5 py-3 text-[20px] border-1">Contacts</li>
             <li className="px-5 py-3 text-[20px] border-1">Journal</li>
