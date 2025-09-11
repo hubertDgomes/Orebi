@@ -25,8 +25,17 @@ const Header = () => {
             <li>Contacts</li>
             <li>Journal</li>
           </ul>
-
-          {toggle && (
+        </div>
+        
+        <div className="block sm:hidden">
+          <button onClick={showNav}>
+            {toggle ? <RxCross2 /> : <IoMdMenu/>}
+          </button>
+          
+        </div>
+        
+      </div>
+      {toggle && (
             <div className="transition-all duration-700 block sm:hidden items-start">
               <ul>
                 <Link to={"/"}>
@@ -39,14 +48,6 @@ const Header = () => {
               </ul>
             </div>
           )}
-        </div>
-        <div className="block sm:hidden">
-          <button onClick={showNav}>
-            {toggle ? <RxCross2 /> : <IoMdMenu/>}
-          </button>
-          
-        </div>
-      </div>
     </Container>
   );
 };
