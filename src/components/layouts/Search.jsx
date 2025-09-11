@@ -67,7 +67,7 @@ const Search = () => {
             </div>
             <div className="flex gap-x-[15px] items-center">
               <div className="relative">
-                <FaUser onClick={handleLog} className="cursor-pointer" />
+                <FaUser onClick={handleLog} className="cursor-pointer text-[30px]" />
                 {showLog && (
                   <div className="absolute top-[20px] sm:top-[40px] right-0 sm:w-[200px] w-[90px] text-center font-DM font-bold">
                     <p className="text-white bg-black p-1 text-[10px] sm:text-[20px] cursor-pointer sm:p-4">My Account</p>
@@ -75,7 +75,7 @@ const Search = () => {
                   </div>
                 )}
               </div>
-              <Link to={"/Cart"}><button><IoCartSharp className="text-[18px] cursor-pointer" /></button></Link>
+              <Link to={"/Cart"}><button><IoCartSharp className="text-[30px] cursor-pointer" /></button></Link>
             </div>
           </div>
         </Container>
