@@ -21,7 +21,7 @@ const Header = () => {
               <li>Home</li>
             </Link>
             <Link to={"/Shop"}><li>Shop</li></Link>
-            <li>About</li>
+            <Link to={"/About"}><li>About</li></Link>
             <li>Contacts</li>
             <li>Journal</li>
           </ul>
@@ -42,7 +42,7 @@ const Header = () => {
               <li className="px-5 py-3 text-[20px] border-1">Home</li>
             </Link>
             <Link to={"/Shop"}><li className="px-5 py-3 text-[20px] border-1">Shop</li></Link>
-            <li className="px-5 py-3 text-[20px] border-1">About</li>
+            <Link to={"/About"}><li className="px-5 py-3 text-[20px] border-1">About</li></Link>
             <li className="px-5 py-3 text-[20px] border-1">Contacts</li>
             <li className="px-5 py-3 text-[20px] border-1">Journal</li>
               </ul>

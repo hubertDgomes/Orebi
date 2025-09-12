@@ -7,6 +7,7 @@ import RootLayout from "./components/layouts/RootLayout";
 import Home from "./components/pages/Home";
 import Cart from "./components/pages/Cart";
 import Shop from "./components/pages/Shop";
+import About from "./components/pages/About";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route path="" element={<Home />} />
           <Route path="/Cart" element={<Cart />} />
           <Route path="/Shop" element={<Shop />} />
+          <Route path="/About" element={<About />} />
         </Route>
       </Routes>
     </>
