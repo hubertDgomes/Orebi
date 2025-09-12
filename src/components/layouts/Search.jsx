@@ -86,7 +86,7 @@ const Search = () => {
                 className="w-[150px] sm:w-[200px] lg:w-[600px] pr-[50px] py-[10px] px-[20px] bg-white sm:placeholder:text-[19px] placeholder:text-[10px]"
               />
               <FaMagnifyingGlass className="absolute right-5 top-[20px] sm:top-3.5 cursor-pointer text-[10px] sm:text-[20px]" />
-              <div className=" bg-white absolute w-full max-h-[400px] overflow-y-auto">
+              <div className=" bg-white absolute w-full max-h-[700px] overflow-y-auto">
                 {quary &&
                   (filtered.length > 0 ? (
                     filtered.map((item) => (
