@@ -11,36 +11,34 @@ import { FaUndo } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import Products from "./Products";
 import { useDispatch, useSelector } from "react-redux";
-import  addCart  from "../../features/addToCartSlice";
+import addCart from "../../features/addToCartSlice";
 
 const Search = () => {
   const [showCat, setShowCat] = useState(false);
   const [showLog, setShowLog] = useState(false);
   const [quary, setQuary] = useState("");
   const [show, setShow] = useState([]);
-  
-  
+
   const catHandler = () => {
     setShowCat(!showCat);
   };
   const handleLog = () => {
     setShowLog(!showLog);
   };
-  
+
   useEffect(() => {
     fetch("https://dummyjson.com/products")
-    .then((res) => {
-      return res.json();
-    })
-    .then((datas) => {
-      setShow(datas.products);
-    });
+      .then((res) => {
+        return res.json();
+      })
+      .then((data) => {
+        setShow(data.products);
+      });
   }, []);
-  
+
   const filtered = show.filter((item) =>
     item.title.toLowerCase().includes(quary.toLowerCase())
-);
-
+  );
 
   return (
     <>
@@ -86,24 +84,19 @@ const Search = () => {
                 className="w-[150px] sm:w-[200px] lg:w-[600px] pr-[50px] py-[10px] px-[20px] bg-white sm:placeholder:text-[19px] placeholder:text-[10px]"
               />
               <FaMagnifyingGlass className="absolute right-5 top-[20px] sm:top-3.5 cursor-pointer text-[10px] sm:text-[20px]" />
-              <div className=" bg-white absolute w-full max-h-[700px] overflow-y-auto">
+              <div className="absolute bg-white m-auto w-full flex justify-center flex-col items-center max-h-[600px] overflow-y-auto">
                 {quary &&
-                  (filtered.length > 0 ? (
-                    filtered.map((item) => (
-                      <div className="flex items-center justify-center">
-                        {/* <img src={item.thumbnail} className="w-[100px]" />
-                        <p className="p-2 font-DM font-bold cursor-pointer">
-                          {item.title}
-                        </p>
-                        <button className="font-bold p-1 bg-white border-1 cursor-pointer">Add To Cart</button> */}
-                        <Products src={item.thumbnail} proName={item.title} proPrice={item.price} className={""}/>
-                      </div>
-                    ))
-                  ) : (
-                    <p className="text-center p-4 font-DM text-red-600 font-bold">
-                      Not Found
-                    </p>
-                  ))}
+                (filtered.length > 0 ? (
+                  filtered.map((item) => (
+                    <Products
+                      src={item.thumbnail}
+                      proName={item.title}
+                      proPrice={item.price}
+                    />
+                  ))
+                ) : (
+                  <p>Not Found</p>
+                ))}
               </div>
             </div>
             <div className="flex gap-x-[15px] items-center">
