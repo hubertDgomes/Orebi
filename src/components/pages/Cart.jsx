@@ -6,6 +6,8 @@ import { quantityMinus, quantityPlus } from "../../features/addToCartSlice";
 const Cart = () => {
   const data = useSelector((state) => state.cart.value);
   const amount = data.quantity;
+  console.log(data);
+  
   const dispatch = useDispatch()
 
   return (

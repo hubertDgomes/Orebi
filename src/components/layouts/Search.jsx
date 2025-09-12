@@ -10,32 +10,37 @@ import { FaTruck } from "react-icons/fa";
 import { FaUndo } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import Products from "./Products";
+import { useDispatch, useSelector } from "react-redux";
+import  addCart  from "../../features/addToCartSlice";
 
 const Search = () => {
   const [showCat, setShowCat] = useState(false);
   const [showLog, setShowLog] = useState(false);
   const [quary, setQuary] = useState("");
   const [show, setShow] = useState([]);
+  
+  
   const catHandler = () => {
     setShowCat(!showCat);
   };
   const handleLog = () => {
     setShowLog(!showLog);
   };
-
+  
   useEffect(() => {
     fetch("https://dummyjson.com/products")
-      .then((res) => {
-        return res.json();
-      })
-      .then((datas) => {
-        setShow(datas.products);
-      });
+    .then((res) => {
+      return res.json();
+    })
+    .then((datas) => {
+      setShow(datas.products);
+    });
   }, []);
-
+  
   const filtered = show.filter((item) =>
     item.title.toLowerCase().includes(quary.toLowerCase())
-  );
+);
+
 
   return (
     <>
@@ -76,7 +81,6 @@ const Search = () => {
             <div className="relative">
               <input
                 type="text"
-                value={quary}
                 onChange={(e) => setQuary(e.target.value)}
                 placeholder="Search Products"
                 className="w-[150px] sm:w-[200px] lg:w-[600px] pr-[50px] py-[10px] px-[20px] bg-white sm:placeholder:text-[19px] placeholder:text-[10px]"
@@ -86,11 +90,13 @@ const Search = () => {
                 {quary &&
                   (filtered.length > 0 ? (
                     filtered.map((item) => (
-                      <div className="flex items-center">
-                        <img src={item.thumbnail} className="w-[100px]" />
+                      <div className="flex items-center justify-center">
+                        {/* <img src={item.thumbnail} className="w-[100px]" />
                         <p className="p-2 font-DM font-bold cursor-pointer">
                           {item.title}
                         </p>
+                        <button className="font-bold p-1 bg-white border-1 cursor-pointer">Add To Cart</button> */}
+                        <Products src={item.thumbnail} proName={item.title} proPrice={item.price} className={""}/>
                       </div>
                     ))
                   ) : (

@@ -8,7 +8,7 @@ import { useDispatch } from "react-redux";
 import { addCart } from "../../features/addToCartSlice";
 
 
-const Products = ({ src, proName, proPrice }) => {
+const Products = ({ src, proName, proPrice, className }) => {
   const [show , setShow] = useState(false)
   let dispatch = useDispatch();
   const sendToCart = () => {
@@ -22,12 +22,12 @@ const Products = ({ src, proName, proPrice }) => {
       })
     );
   };
-  const mobileMenu = (e)=>{
+  const mobileMenu = ()=>{
     setShow(!show)
   }
   return (
     <>
-      <div className="lg:w-[370px] sm:w-[230px] relative group mx-[20px]" onClick={mobileMenu}>
+      <div className={`lg:w-[370px] sm:w-[230px] relative group mx-[20px] ${className}`} onClick={mobileMenu}>
         <Images className={"bg-[#F9F9F9] m-auto w-full"} src={src} />
         {show &&
         <div className="bg-white py-[10px] px-[30px] flex flex-col items-end absolute bottom-[50px] sm:hidden w-full" onClick={(e)=>e.stopPropagation()} >

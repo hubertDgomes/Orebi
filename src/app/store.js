@@ -7,5 +7,6 @@ export const store = configureStore({
     cart : addCart,
     add: quantityPlus,
     remove: quantityMinus,
+    
   },
 })
