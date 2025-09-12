@@ -12,6 +12,7 @@ const Header = () => {
     setToggle(!toggle);
   };
   return (
+    <>
     <Container className={"py-[30px] "}>
       <div className="flex items-center mx-[20px] lg:mx-0">
         <Images src={Logo} />
@@ -22,7 +23,7 @@ const Header = () => {
             </Link>
             <Link to={"/Shop"}><li>Shop</li></Link>
             <Link to={"/About"}><li>About</li></Link>
-            <li>Contacts</li>
+            <Link to={"/Contact"}><li>Contacts</li></Link>
             <li>Journal</li>
           </ul>
         </div>
@@ -43,12 +44,18 @@ const Header = () => {
             </Link>
             <Link to={"/Shop"}><li className="px-5 py-3 text-[20px] border-1">Shop</li></Link>
             <Link to={"/About"}><li className="px-5 py-3 text-[20px] border-1">About</li></Link>
-            <li className="px-5 py-3 text-[20px] border-1">Contacts</li>
+            <Link to={"/Contact"}><li className="px-5 py-3 text-[20px] border-1">Contacts</li></Link>
             <li className="px-5 py-3 text-[20px] border-1">Journal</li>
               </ul>
             </div>
           )}
     </Container>
+
+
+          
+
+    </>
+    
   );
 };
 
