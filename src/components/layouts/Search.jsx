@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Container from "../Container";
 import { HiOutlineMenuAlt1 } from "react-icons/hi";
 import { FaMagnifyingGlass } from "react-icons/fa6";
@@ -9,18 +9,34 @@ import Banner from "/src/assets/banner1.png";
 import { FaTruck } from "react-icons/fa";
 import { FaUndo } from "react-icons/fa";
 import { Link } from "react-router-dom";
-
-
+import Products from "./Products";
 
 const Search = () => {
   const [showCat, setShowCat] = useState(false);
   const [showLog, setShowLog] = useState(false);
+  const [quary, setQuary] = useState("");
+  const [show, setShow] = useState([]);
   const catHandler = () => {
     setShowCat(!showCat);
   };
   const handleLog = () => {
     setShowLog(!showLog);
   };
+
+  useEffect(() => {
+    fetch("https://dummyjson.com/products")
+      .then((res) => {
+        return res.json();
+      })
+      .then((datas) => {
+        setShow(datas.products);
+      });
+  }, []);
+
+  const filtered = show.filter((item) =>
+    item.title.toLowerCase().includes(quary.toLowerCase())
+  );
+
   return (
     <>
       <div className="bg-[#F5F5F3] pt-[30px]">
@@ -60,43 +76,77 @@ const Search = () => {
             <div className="relative">
               <input
                 type="text"
+                value={quary}
+                onChange={(e) => setQuary(e.target.value)}
                 placeholder="Search Products"
                 className="w-[150px] sm:w-[200px] lg:w-[600px] pr-[50px] py-[10px] px-[20px] bg-white sm:placeholder:text-[19px] placeholder:text-[10px]"
               />
               <FaMagnifyingGlass className="absolute right-5 top-[20px] sm:top-3.5 cursor-pointer text-[10px] sm:text-[20px]" />
+              <div className=" bg-white absolute w-full max-h-[400px] overflow-y-auto">
+                {quary &&
+                  (filtered.length > 0 ? (
+                    filtered.map((item) => (
+                      <div className="flex items-center">
+                        <img src={item.thumbnail} className="w-[100px]" />
+                        <p className="p-2 font-DM font-bold cursor-pointer">
+                          {item.title}
+                        </p>
+                      </div>
+                    ))
+                  ) : (
+                    <p className="text-center p-4 font-DM text-red-600 font-bold">
+                      Not Found
+                    </p>
+                  ))}
+              </div>
             </div>
             <div className="flex gap-x-[15px] items-center">
               <div className="relative">
-                <FaUser onClick={handleLog} className="cursor-pointer text-[30px]" />
+                <FaUser
+                  onClick={handleLog}
+                  className="cursor-pointer text-[30px]"
+                />
                 {showLog && (
                   <div className="absolute top-[20px] sm:top-[40px] right-0 sm:w-[200px] w-[90px] text-center font-DM font-bold">
-                    <p className="text-white bg-black p-1 text-[10px] sm:text-[20px] cursor-pointer sm:p-4">My Account</p>
-                    <p className="bg-white text-black p-1 text-[10px] sm:text-[20px] cursor-pointer sm:p-4">Log Out</p>
+                    <p className="text-white bg-black p-1 text-[10px] sm:text-[20px] cursor-pointer sm:p-4">
+                      My Account
+                    </p>
+                    <p className="bg-white text-black p-1 text-[10px] sm:text-[20px] cursor-pointer sm:p-4">
+                      Log Out
+                    </p>
                   </div>
                 )}
               </div>
-              <Link to={"/Cart"}><button><IoCartSharp className="text-[30px] cursor-pointer" /></button></Link>
+              <Link to={"/Cart"}>
+                <button>
+                  <IoCartSharp className="text-[30px] cursor-pointer" />
+                </button>
+              </Link>
             </div>
           </div>
         </Container>
         <Images className={"m-auto w-full"} src={Banner} />
       </div>
       <Container className={"py-[20px]"}>
-          <div className="flex sm:flex-row flex-col text-center sm:justify-between gap-y-[20px] items-center">
-            <div className="flex items-center gap-x-[10px]">
-              <p className="text-[25px]">2</p>
-              <p className="font-DM text-[16px]"> Two years warranty</p>
-            </div>
-            <div className="flex items-center gap-x-[10px]">
-              <p className="text-[25px]"><FaTruck /></p>
-              <p className="font-DM text-[16px]">Free shipping</p>
-            </div>
-            <div className="flex items-center gap-x-[10px]">
-              <p className="text-[25px]"><FaUndo /></p>
-              <p className="font-DM text-[16px]">Return policy in 30 days</p>
-            </div>
+        <div className="flex sm:flex-row flex-col text-center sm:justify-between gap-y-[20px] items-center">
+          <div className="flex items-center gap-x-[10px]">
+            <p className="text-[25px]">2</p>
+            <p className="font-DM text-[16px]"> Two years warranty</p>
           </div>
-        </Container>
+          <div className="flex items-center gap-x-[10px]">
+            <p className="text-[25px]">
+              <FaTruck />
+            </p>
+            <p className="font-DM text-[16px]">Free shipping</p>
+          </div>
+          <div className="flex items-center gap-x-[10px]">
+            <p className="text-[25px]">
+              <FaUndo />
+            </p>
+            <p className="font-DM text-[16px]">Return policy in 30 days</p>
+          </div>
+        </div>
+      </Container>
     </>
   );
 };
