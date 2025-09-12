@@ -10,8 +10,8 @@ const About = () => {
     <Container>
         <h1 className='font-DM font-bold text-[49px] py-[20px]'>About</h1>
         <div className="flex justify-between py-[30px]">
-            <Images className={"w-[200px] md:w-[400px] lg:w-fit"} src={about2}/>
-            <Images className={"w-[200px] md:w-[400px] lg:w-fit"} src={about1}/>
+            <Images className={"w-[200px] md:w-[400px] lg:w-[600px]"} src={about2}/>
+            <Images className={"w-[200px] md:w-[400px] lg:w-[600px]"} src={about1}/>
         </div>
         <div className="lg:w-[1602px] md:w-[700px] w-[400px] py-[30px] m-auto">
             <p className='font-DM lg:text-[40px] text-[25px] text-center md:text-left'>Orebi is one of the world’s leading ecommerce brands and is internationally recognized for celebrating the essence of classic Worldwide cool looking style.</p>
