@@ -95,7 +95,7 @@ const Search = () => {
                     />
                   ))
                 ) : (
-                  <p>Not Found</p>
+                  <p className="text-[30px]  font-bold  text-red-500 p-4">Not Found</p>
                 ))}
               </div>
             </div>
