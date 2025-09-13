@@ -107,12 +107,12 @@ const Search = () => {
                 />
                 {showLog && (
                   <div className="absolute top-[20px] sm:top-[40px] right-0 sm:w-[200px] w-[90px] text-center font-DM font-bold">
-                    <p className="text-white bg-black p-1 text-[10px] sm:text-[20px] cursor-pointer sm:p-4">
+                    <button className="text-white bg-black p-1 text-[10px] sm:text-[20px] cursor-pointer sm:p-4 w-[200px]">
                       My Account
-                    </p>
-                    <p className="bg-white text-black p-1 text-[10px] sm:text-[20px] cursor-pointer sm:p-4">
-                      Log Out
-                    </p>
+                    </button>
+                    <Link to={"/Login"}><button className="bg-white text-black p-1 text-[10px] sm:text-[20px] cursor-pointer sm:p-4 w-[200px]">
+                      Log In
+                    </button></Link>
                   </div>
                 )}
               </div>
