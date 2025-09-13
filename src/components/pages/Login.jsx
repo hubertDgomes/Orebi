@@ -1,5 +1,6 @@
 import React from "react";
 import Container from "../Container";
+import { Link } from "react-router-dom";
 
 const Login = () => {
     const stopRel = (e)=>{
@@ -49,7 +50,7 @@ const Login = () => {
         </div>
 
         <div className="text-center md:text-left">
-            <button className="py-[20px] px-[85px] border-2 font-DM font-bold text-[14px] hover:bg-black hover:text-white cursor-pointer transition-all duration-300 mb-[40px]">Sign Up</button>
+            <Link to={"/SignUp"}><button className="py-[20px] px-[85px] border-2 font-DM font-bold text-[14px] hover:bg-black hover:text-white cursor-pointer transition-all duration-300 mb-[40px]">Sign Up</button></Link>
         </div>
       </Container>
     </>
