@@ -40,7 +40,7 @@ const Login = () => {
           <button onClick={stopRel} className="py-[20px] px-[85px] border-2 font-DM font-bold text-[14px] hover:bg-black hover:text-white cursor-pointer transition-all duration-300 mb-[40px] md:mb-0">Log In</button>
         </form>
         <hr />
-        <h2 className="font-DM font-bold text-[49px] pt-[40px] text-center md:text-left">New Customer</h2>
+        <h2 className="font-DM font-bold text-[49px] pt-[40px] text-center md:text-left">New Customer?</h2>
         <div className="lg:w-[644px]">
           <p className="font-DM text-[16px] text-[#767676] py-[40px] text-center md:text-left">
             Lorem Ipsum is simply dummy text of the printing and typesetting

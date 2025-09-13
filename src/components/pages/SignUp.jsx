@@ -18,7 +18,9 @@ const SignUp = () => {
 
   const district = select ? division.division[select] : [];
   console.log(district);
-
+  const noo = (e)=>{
+    e.preventDefault()
+  }
   return (
     <>
       <Container>
@@ -187,6 +189,36 @@ const SignUp = () => {
               </select>
             </div>
           </div>
+          <h2 className="font-DM font-bold text-[49px] py-[30px] text-center md:text-left">
+            Your Password
+          </h2>
+          <div className="flex flex-col md:flex-row gap-x-[40px] py-[60px]">
+            <div className="md:w-[580px] mb-[40px] md:mb-0">
+              <label htmlFor="" className="font-DM font-bold text-[16px]">
+                Password
+              </label>
+              <br />
+              <input
+                type="password"
+                className="font-DM text-[16px] border-b-1 lg:w-[580px] w-[300px] focus:outline-0 mt-[20px] text-center md:text-left placeholder:text-center md:placeholder:text-left"
+                placeholder="Password"
+              />
+            </div>
+
+            <div className="md:w-[580px]">
+              <label htmlFor="" className="font-DM font-bold text-[16px]">
+                Repeat Password
+              </label>
+              <br />
+              <input
+                type="password"
+                className="font-DM text-[16px] border-b-1 lg:w-[580px] w-[300px] focus:outline-0 mt-[20px] text-center md:text-left placeholder:text-center md:placeholder:text-left"
+                placeholder="Repeat password"
+              />
+            </div>
+          </div>
+         
+          <button onClick={noo} className="py-[20px] px-[85px] border-2 font-DM font-bold text-[14px] hover:bg-black hover:text-white cursor-pointer transition-all duration-300 mb-[40px] md:mb-0">Log In</button>
         </form>
       </Container>
     </>
