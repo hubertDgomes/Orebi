@@ -6,7 +6,7 @@ const SignUp = () => {
   const [division, setDivision] = useState([]);
   const [select, setSelect] = useState("");
   useEffect(() => {
-    fetch("/src/features/division.json")
+    fetch("/public/division.json")
       .then((res) => {
         return res.json();
       })
