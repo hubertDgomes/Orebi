@@ -12,6 +12,7 @@ import Contact from "./components/pages/Contact";
 import Login from "./components/pages/Login";
 import SignUp from "./components/pages/SignUp";
 import Error from "./components/pages/Error";
+import AboutMe from "./components/pages/AboutMe";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
           <Route path="/Login" element={<Login/>}/>
           <Route path="/SignUp" element={<SignUp/>}/>
           <Route path="*" element={<Error/>}/>
+          <Route path="/AboutMe" element={<AboutMe/>}/>
         </Route>
       </Routes>
     </>
