@@ -1,19 +1,12 @@
 import React, { useEffect, useState } from "react";
 import Container from "../Container";
 import { data } from "react-router-dom";
+import divisionData from '/src/features/division'
 
 const SignUp = () => {
-  const [division, setDivision] = useState([]);
+  const [division, setDivision] = useState(divisionData);
   const [select, setSelect] = useState("");
-  useEffect(() => {
-    fetch("/public/division.json")
-      .then((res) => {
-        return res.json();
-      })
-      .then((data) => {
-        setDivision(data);
-      });
-  }, []);
+  
   //   console.log(select);
 
   const district = select ? division.division[select] : [];
